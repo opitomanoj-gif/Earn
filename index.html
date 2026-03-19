@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Touch & Earn</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff7e5f,#feb47b,#6a11cb,#2575fc);
+background-size:400% 400%;
+animation:bgmove 10s infinite alternate;
+}
+
+@keyframes bgmove{
+0%{background-position:left;}
+100%{background-position:right;}
+}
+
+.container{
+text-align:center;
+color:white;
+}
+
+h1{
+font-size:40px;
+margin-bottom:20px;
+text-shadow:0 0 10px rgba(0,0,0,0.5);
+}
+
+p{
+font-size:18px;
+margin-bottom:30px;
+}
+
+button{
+padding:18px 40px;
+font-size:22px;
+border:none;
+border-radius:50px;
+background:gold;
+color:black;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 0 15px gold;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 30px yellow;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>💰 Touch & Earn 💰</h1>
+<p>Touch the button and start earning!</p>
+
+<button onclick="goLink()">TOUCH & EARN</button>
+</div>
+
+<script>
+function goLink(){
+window.location.href="https://app-api.kickcash.in/api/v1/6590ACAD0A86BB6e8:g:Bji7gAiC:A8A";
+}
+</script>
+
+</body>
+</html>
