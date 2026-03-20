@@ -1,65 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Touch & Earn</title>
+<title>Click & Earn</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
-}
 
 body{
+margin:0;
+font-family:Arial;
+text-align:center;
 height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#ff7e5f,#feb47b,#6a11cb,#2575fc);
+color:white;
+
+background:linear-gradient(45deg,#ff0000,#ff9900,#00ccff,#00ff99,#cc00ff);
 background-size:400% 400%;
-animation:bgmove 10s infinite alternate;
+animation:bg 8s infinite alternate;
 }
 
-@keyframes bgmove{
-0%{background-position:left;}
-100%{background-position:right;}
+@keyframes bg{
+0%{background-position:0%}
+100%{background-position:100%}
 }
 
 .container{
-text-align:center;
-color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
 
-h1{
-font-size:40px;
-margin-bottom:20px;
-text-shadow:0 0 10px rgba(0,0,0,0.5);
-}
-
-p{
-font-size:18px;
-margin-bottom:30px;
+input{
+padding:12px;
+font-size:16px;
+border:none;
+border-radius:8px;
+margin:10px;
+width:220px;
 }
 
 button{
-padding:18px 40px;
-font-size:22px;
+padding:14px 30px;
+font-size:18px;
 border:none;
-border-radius:50px;
-background:gold;
-color:black;
-font-weight:bold;
+border-radius:10px;
+background:black;
+color:white;
 cursor:pointer;
-box-shadow:0 0 15px gold;
-transition:0.3s;
 }
 
-button:hover{
-transform:scale(1.1);
-box-shadow:0 0 30px yellow;
+.earnBtn{
+font-size:22px;
+padding:18px 40px;
+background:#000;
+margin-top:20px;
+}
+
+.box{
+background:rgba(0,0,0,0.5);
+padding:20px;
+border-radius:12px;
+margin-top:20px;
 }
 
 </style>
@@ -67,17 +69,64 @@ box-shadow:0 0 30px yellow;
 
 <body>
 
-<div class="container">
-<h1>💰 Touch & Earn 💰</h1>
-<p>Touch the button and start earning!</p>
+<!-- LOGIN PAGE -->
 
-<button onclick="goLink()">TOUCH & EARN</button>
+<div id="login" class="container">
+
+<h2>Login</h2>
+
+<input id="upi" placeholder="Enter UPI ID">
+
+<button onclick="login()">Login</button>
+
 </div>
 
+
+<!-- MAIN PAGE -->
+
+<div id="main" class="container" style="display:none">
+
+<h1>Click & Earn 💰</h1>
+
+<div class="box">
+
+<h3>Must Follow & Earn</h3>
+
+<p>1️⃣ Install the App</p>
+<p>2️⃣ Register the App</p>
+<p>3️⃣ Make Purchase ₹1</p>
+
+</div>
+
+<button class="earnBtn" onclick="earn()">🔘 Click & Earn</button>
+
+</div>
+
+
 <script>
-function goLink(){
-window.location.href="https://app-api.kickcash.in/api/v1/6590ACAD0A86BB6e8:g:Bji7gAiC:A8A";
+
+function login(){
+
+let upi=document.getElementById("upi").value
+
+if(upi==""){
+alert("Enter UPI ID")
+return
 }
+
+localStorage.setItem("userUpi",upi)
+
+document.getElementById("login").style.display="none"
+document.getElementById("main").style.display="flex"
+
+}
+
+function earn(){
+
+window.location.href="https://app-api.kickcash.in/api/v1/6590ACAD0A86BB6e8:g:Bji7gAiC:A8A"
+
+}
+
 </script>
 
 </body>
