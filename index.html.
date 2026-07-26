@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Movie Collection</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#1a0000,#320000,#000);
+color:#fff;
+}
+
+header{
+background:#ff9800;
+padding:20px;
+text-align:center;
+font-size:30px;
+font-weight:bold;
+color:#000;
+position:sticky;
+top:0;
+}
+
+.container{
+width:95%;
+max-width:700px;
+margin:auto;
+padding:20px;
+}
+
+.search{
+width:100%;
+padding:15px;
+border:none;
+border-radius:10px;
+font-size:18px;
+margin-bottom:20px;
+outline:none;
+}
+
+.card{
+background:#222;
+border:2px solid #ff9800;
+border-radius:15px;
+padding:20px;
+margin-bottom:20px;
+box-shadow:0 0 10px rgba(255,152,0,.4);
+}
+
+.number{
+font-size:40px;
+font-weight:bold;
+color:#ff9800;
+float:right;
+}
+
+.title{
+font-size:25px;
+color:#ff9800;
+margin-bottom:10px;
+}
+
+.desc{
+margin:15px 0;
+line-height:1.5;
+}
+
+.btn{
+display:block;
+width:100%;
+text-align:center;
+background:#ff9800;
+color:#000;
+text-decoration:none;
+padding:14px;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+margin-top:15px;
+}
+
+.btn:hover{
+background:#ffc107;
+}
+
+footer{
+text-align:center;
+padding:20px;
+color:#aaa;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+🎬 My Movie Collection
+</header>
+
+<div class="container">
+
+<input
+type="text"
+class="search"
+id="search"
+placeholder="Search Movie..."
+onkeyup="loadMovies()">
+
+<div id="movies"></div>
+
+</div>
+
+<footer>
+Made with ❤️
+</footer>
+
+<script>
+
+//=============================
+// EDIT ONLY THIS SECTION
+//=============================
+
+const movieList=[
+
+{
+name:"Movie 01",
+desc:"Add movie description",
+link:"https://example.com/movie1"
+},
+
+{
+name:"Movie 02",
+desc:"Add movie description",
+link:"https://example.com/movie2"
+},
+
+{
+name:"Movie 03",
+desc:"Add movie description",
+link:"https://example.com/movie3"
+},
+
+{
+name:"Movie 04",
+desc:"Add movie description",
+link:"https://example.com/movie4"
+},
+
+{
+name:"Movie 05",
+desc:"Add movie description",
+link:"https://example.com/movie5"
+}
+
+];
+
+//=============================
+
+function loadMovies(){
+
+let text=document.getElementById("search").value.toLowerCase();
+
+let html="";
+
+movieList.forEach((movie,index)=>{
+
+if(movie.name.toLowerCase().includes(text)){
+
+html+=`
+
+<div class="card">
+
+<div class="number">${index+1}</div>
+
+<div class="title">${movie.name}</div>
+
+<div class="desc">${movie.desc}</div>
+
+<a class="btn" href="${movie.link}" target="_blank">
+🎬 Open Movie
+</a>
+
+</div>
+
+`;
+
+}
+
+});
+
+document.getElementById("movies").innerHTML=html;
+
+}
+
+loadMovies();
+
+</script>
+
+</body>
+</html>
